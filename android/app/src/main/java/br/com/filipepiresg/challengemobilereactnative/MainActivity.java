@@ -1,4 +1,4 @@
-package com.challengemobilereactnative;
+package br.com.filipepiresg.challengemobilereactnative;
 
 import com.facebook.react.ReactActivity;
 

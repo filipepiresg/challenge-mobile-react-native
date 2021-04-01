@@ -104,7 +104,6 @@
 				A6F9AB08910ECA854A5DF69F /* Pods-ChallengeMobileReactNative-ChallengeMobileReactNativeTests.debug.xcconfig */,
 				B3ABB9F887D1E2C3037F6A48 /* Pods-ChallengeMobileReactNative-ChallengeMobileReactNativeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -482,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D81CDAB4B8247CB8CD1D27C5 /* Pods-ChallengeMobileReactNative.debug.xcconfig */;
 			buildSettings = {
+				APP_DISPLAYNAME = "CMRN-Dev";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -491,12 +491,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.filipepiresg.ChallengeMobileReactNative;
 				PRODUCT_NAME = ChallengeMobileReactNative;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -508,6 +509,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D55702A499A313D347098180 /* Pods-ChallengeMobileReactNative.release.xcconfig */;
 			buildSettings = {
+				APP_DISPLAYNAME = ChallengeMobile;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -516,12 +518,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.filipepiresg.ChallengeMobileReactNative;
 				PRODUCT_NAME = ChallengeMobileReactNative;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
