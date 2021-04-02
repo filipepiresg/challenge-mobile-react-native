@@ -9,7 +9,7 @@ import * as Types from './types';
 export interface CharacterStateInterface {
   characters: CharacterInterface[];
   loading: boolean;
-  selected: CharacterInterface | null;
+  selected?: CharacterInterface;
   page: number;
   pageTotal: number;
 }
@@ -17,7 +17,7 @@ export interface CharacterStateInterface {
 const INITIAL_STATE: CharacterStateInterface = {
   characters: [],
   loading: false,
-  selected: null,
+  selected: undefined,
   page: 0,
   pageTotal: 1,
 };
@@ -29,7 +29,7 @@ function character(
   return produce(state, (draft) => {
     switch (action.type) {
       case Types.GET_ALL_CHARACTERS_REQUEST: {
-        draft.loading = false;
+        draft.loading = true;
         break;
       }
       case Types.GET_ALL_CHARACTERS_FAILURE: {
