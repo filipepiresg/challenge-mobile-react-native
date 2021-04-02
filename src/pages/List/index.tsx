@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {SIZE_OFFSET} from '../../common/constants';
-import {Spinner, List, Separator} from '../../components';
+import {Spinner, List, Separator, Header} from '../../components';
 import Card from '../../components/Card';
 import {getAllCharacters as fetchAllCharacters} from '../../services/characters';
 import {
@@ -68,6 +68,8 @@ export default () => {
 
   return (
     <Container>
+      <Header hasSearch />
+
       <List
         data={characters}
         keyExtractor={(_, index) => String(index)}

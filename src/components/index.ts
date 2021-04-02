@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 import {CharacterInterface} from '../store/modules/Interfaces';
 
 export {default as Card} from './Card';
+export {default as Header} from './Header';
 export {default as ModalContent} from './ModalContent';
 
 export const Spinner = styled.ActivityIndicator.attrs({

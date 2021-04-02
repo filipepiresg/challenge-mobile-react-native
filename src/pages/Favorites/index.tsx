@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-import {Card, List, Separator} from '../../components';
+import {Card, List, Separator, Header} from '../../components';
 import {FavoritesStateInterface} from '../../store/modules/favorites/reducer';
 import {Container} from './styles';
 
@@ -12,6 +12,8 @@ export default () => {
 
   return (
     <Container>
+      <Header />
+
       <List
         data={favorites}
         keyExtractor={(_, index) => String(index)}
