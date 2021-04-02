@@ -5,9 +5,10 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
     __DEV__: 'readonly',
   },
-  "parserOptions": {
-    "project": "./tsconfig.json",
+  parserOptions: {
+    project: ['./tsconfig.json'],
   },
+  parser: '@typescript-eslint/parser',
   extends: [
     '@react-native-community',
     'airbnb-typescript',
@@ -28,7 +29,10 @@ module.exports = {
     camelcase: 'off',
     'prettier/prettier': ['error'],
     'react/destructuring-assignment': [0],
-    'react/jsx-filename-extension': ['error', {extensions: ['.js', '.jsx', '.ts', '.tsx']}],
+    'react/jsx-filename-extension': [
+      'error',
+      {extensions: ['.js', '.jsx', '.ts', '.tsx']},
+    ],
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-spreading': [0],
     'react/state-in-constructor': 'off',
@@ -43,6 +47,8 @@ module.exports = {
     'react-native/sort-styles': 'off',
     'react/no-array-index-key': 'off',
     'global-require': 'off',
+    'dot-notation': 'off',
+    '@typescript-eslint/dot-notation': ['error'],
     'import/prefer-default-export': 'off',
     'import/no-unresolved': [
       2,
