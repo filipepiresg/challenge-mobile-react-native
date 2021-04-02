@@ -4,8 +4,9 @@ import styled from 'styled-components/native';
 
 import {CharacterInterface} from '../../store/modules/Interfaces';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
+  background-color: white;
 `;
 
 export const List = styled(
