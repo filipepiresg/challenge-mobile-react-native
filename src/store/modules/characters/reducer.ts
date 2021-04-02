@@ -64,8 +64,12 @@ function character(
         break;
       }
       case FavoritesTypes.SELECT_FAVORITE:
-      case Types.SHOW_CHARACTER: {
+      case Types.SELECT_CHARACTER: {
         draft.selected = action.payload.character;
+        break;
+      }
+      case Types.DESELECT_CHARACTER: {
+        draft.selected = undefined;
         break;
       }
       default:

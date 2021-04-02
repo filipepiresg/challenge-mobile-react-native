@@ -1,6 +1,8 @@
-import React, {useMemo, memo} from 'react';
+import React, {useCallback, useMemo, memo} from 'react';
 import FastImage from 'react-native-fast-image';
+import {useDispatch} from 'react-redux';
 
+import {showCharacter} from '../../../../store/modules/characters/actions';
 import {CharacterInterface} from '../../../../store/modules/Interfaces';
 import styles, {
   Container,
@@ -16,6 +18,8 @@ type Props = {
 };
 
 const Card = ({data}: Props) => {
+  const dispatch = useDispatch();
+
   const uri = useMemo(
     () =>
       `${data.thumbnail.path}/standard_large.${data.thumbnail.extension}`.replace(
@@ -34,8 +38,12 @@ const Card = ({data}: Props) => {
     [data.thumbnail.extension, data.thumbnail.path],
   );
 
+  const selectCharacter = useCallback(() => {
+    dispatch(showCharacter(data));
+  }, [data, dispatch]);
+
   return (
-    <Container>
+    <Container onPress={selectCharacter}>
       <Background
         source={{uri: uriLandscape}}
         imageStyle={styles.imageBackground}>

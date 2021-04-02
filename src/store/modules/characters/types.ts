@@ -5,4 +5,5 @@ export const GET_ALL_CHARACTERS_SUCCESS =
 export const GET_ALL_CHARACTERS_FAILURE =
   '@character/GET_ALL_CHARACTERS_FAILURE';
 
-export const SHOW_CHARACTER = '@character/SHOW_CHARACTER';
+export const SELECT_CHARACTER = '@character/SELECT_CHARACTER';
+export const DESELECT_CHARACTER = '@character/DESELECT_CHARACTER';

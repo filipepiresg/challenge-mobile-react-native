@@ -35,9 +35,15 @@ export function getAllCharactersFailure(error: string): ActionInterface {
 
 export function showCharacter(character: CharacterInterface) {
   return {
-    type: Types.SHOW_CHARACTER,
+    type: Types.SELECT_CHARACTER,
     payload: {
       character,
     },
+  };
+}
+
+export function hideCharacter() {
+  return {
+    type: Types.DESELECT_CHARACTER,
   };
 }

@@ -3,7 +3,9 @@ import FastImage from 'react-native-fast-image';
 
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.8,
+})`
   border-radius: 10px;
   width: 100%;
   /* height: 100px; */
