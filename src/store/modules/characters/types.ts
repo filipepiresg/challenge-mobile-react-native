@@ -1,0 +1,8 @@
+export const GET_ALL_CHARACTERS_REQUEST =
+  '@character/GET_ALL_CHARACTERS_REQUEST';
+export const GET_ALL_CHARACTERS_SUCCESS =
+  '@character/GET_ALL_CHARACTERS_SUCCESS';
+export const GET_ALL_CHARACTERS_FAILURE =
+  '@character/GET_ALL_CHARACTERS_FAILURE';
+
+export const SHOW_CHARACTER = '@character/SHOW_CHARACTER';
