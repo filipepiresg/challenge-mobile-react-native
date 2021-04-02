@@ -8,11 +8,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const host = NativeModules.SourceCode.scriptURL.split('://')[1].split(':')[0];
 
-const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
-  .configure({
-    name: 'Challenge',
-    host,
-  })
+const tron = Reactotron.configure({
+  name: 'Challenge',
+  host,
+})
+  .setAsyncStorageHandler(AsyncStorage)
   .useReactNative({
     asyncStorage: false,
     networking: {
@@ -24,5 +24,7 @@ const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
   })
   .use(reactotronRedux())
   .connect();
+
+tron.clear();
 
 console.tron = tron;
