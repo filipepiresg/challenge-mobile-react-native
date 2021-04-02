@@ -3,6 +3,13 @@ export interface ActionInterface {
   payload?: any;
 }
 
+export interface InfoInterface {
+  offset: number;
+  limit: number;
+  total: number;
+  count: number;
+}
+
 export interface CharacterInterface {
   id: number;
   name: string;

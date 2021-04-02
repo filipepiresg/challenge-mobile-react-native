@@ -1,3 +1,4 @@
+import {SIZE_OFFSET} from '../common/constants';
 import api from './api';
 
 export function getAllCharacters(offset: number) {
@@ -5,7 +6,7 @@ export function getAllCharacters(offset: number) {
     params: {
       orderBy: 'name',
       offset,
-      limit: 20,
+      limit: SIZE_OFFSET,
     },
     timeout: 20 * 1000,
   });
