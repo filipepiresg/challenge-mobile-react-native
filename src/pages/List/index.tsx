@@ -3,7 +3,8 @@ import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {SIZE_OFFSET} from '../../common/constants';
-import {Spinner} from '../../components';
+import {Spinner, List, Separator} from '../../components';
+import Card from '../../components/Card';
 import {getAllCharacters as fetchAllCharacters} from '../../services/characters';
 import {
   getAllCharactersRequest,
@@ -11,8 +12,7 @@ import {
   getAllCharactersFailure,
 } from '../../store/modules/characters/actions';
 import {CharacterStateInterface} from '../../store/modules/characters/reducer';
-import Card from './components/Card';
-import {Container, List, Separator} from './styles';
+import {Container} from './styles';
 
 export default () => {
   const dispatch = useDispatch();

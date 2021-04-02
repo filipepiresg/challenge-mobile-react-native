@@ -2,8 +2,8 @@ import React, {useCallback, useMemo, memo} from 'react';
 import FastImage from 'react-native-fast-image';
 import {useDispatch} from 'react-redux';
 
-import {showCharacter} from '../../../../store/modules/characters/actions';
-import {CharacterInterface} from '../../../../store/modules/Interfaces';
+import {showCharacter} from '../../store/modules/characters/actions';
+import {CharacterInterface} from '../../store/modules/Interfaces';
 import styles, {
   Container,
   Background,
@@ -17,7 +17,7 @@ type Props = {
   data: CharacterInterface;
 };
 
-const Card = ({data}: Props) => {
+const Card: React.FC<Props> = ({data}) => {
   const dispatch = useDispatch();
 
   const uri = useMemo(
