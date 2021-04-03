@@ -12,6 +12,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {get} from 'lodash';
 
+import * as rootNavigation from '../../routes/rootNavigation';
+import {hideCharacter} from '../../store/modules/characters/actions';
 import {CharacterStateInterface} from '../../store/modules/characters/reducer';
 import {
   addCharacter,
@@ -92,6 +94,14 @@ const ModalContent: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [favorites]);
 
+  const openProfile = useCallback(() => {
+    dispatch(hideCharacter());
+
+    setTimeout(() => {
+      rootNavigation.navigate('Character', {character: selected});
+    }, 300);
+  }, [dispatch, selected]);
+
   const toggleFavorite = useCallback(() => {
     if (selected) {
       dispatch(
@@ -121,7 +131,7 @@ const ModalContent: React.FC = () => {
         <WrapperTitle>
           {!!selected?.description && <FieldTitle>Description</FieldTitle>}
 
-          <ButtonProfile>
+          <ButtonProfile onPress={openProfile}>
             <ProfileText>Open profile</ProfileText>
           </ButtonProfile>
         </WrapperTitle>

@@ -12,11 +12,11 @@ const Tab = createBottomTabNavigator();
 
 export default () => (
   <Tab.Navigator
-    initialRouteName="List"
+    initialRouteName="Characters"
     backBehavior="none"
     screenOptions={({route}) => ({
       tabBarIcon: ({color, size}) => {
-        if (route.name === 'List') {
+        if (route.name === 'Characters') {
           return <Ionicons name="list-outline" size={size} color={color} />;
         }
         if (route.name === 'Favorites') {
@@ -31,7 +31,7 @@ export default () => (
       inactiveTintColor: transparentize(0.6, 'black'),
     }}>
     <Tab.Screen
-      name="List"
+      name="Characters"
       component={List}
       options={{
         title: 'Characters',

@@ -8,7 +8,8 @@ import {ModalContent} from '../components';
 import {hideCharacter} from '../store/modules/characters/actions';
 import {CharacterStateInterface} from '../store/modules/characters/reducer';
 import {Metrics} from '../styles';
-import Main from './stacks/tab';
+import {navigationRef} from './rootNavigation';
+import Main from './stacks/main';
 
 export default () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default () => {
   );
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Main />
 
       <Modal
