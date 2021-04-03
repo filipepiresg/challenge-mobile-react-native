@@ -8,7 +8,7 @@ import {ModalContent} from '../components';
 import {hideCharacter} from '../store/modules/characters/actions';
 import {CharacterStateInterface} from '../store/modules/characters/reducer';
 import {Metrics} from '../styles';
-import Main from './stacks/tab';
+import Main from './stacks/main';
 
 export default () => {
   const dispatch = useDispatch();

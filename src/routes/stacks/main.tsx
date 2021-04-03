@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {ModalContent} from '../../components';
+import {Splash} from '../../pages';
 import {hideCharacter} from '../../store/modules/characters/actions';
 import {CharacterStateInterface} from '../../store/modules/characters/reducer';
 import {Metrics} from '../../styles';
@@ -21,10 +22,11 @@ export default () => {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="Splash"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Main" component={TabStack} />
       </Stack.Navigator>
 
