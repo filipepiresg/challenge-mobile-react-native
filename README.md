@@ -1,5 +1,7 @@
 # Desafio em React Native
 
+[Solucão](./README.SOLUTION.md)
+
 ## O que esperamos que você faça?
 Somos fãs da Marvel, quem não gosta de Super-heróis?
 A ideia é bem simples, queremos um aplicativo que nos mostre todos os personagens da Marvel além de seus eventos e séries.
