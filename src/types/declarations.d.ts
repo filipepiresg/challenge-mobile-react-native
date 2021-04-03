@@ -7,6 +7,6 @@ declare module '*.svg' {
 }
 
 declare module '*.png' {
-  const value: string;
+  const value: number;
   export default value;
 }

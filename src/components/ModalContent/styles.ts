@@ -4,6 +4,7 @@ import FastImage from 'react-native-fast-image';
 import {transparentize} from 'polished';
 import styled from 'styled-components/native';
 
+import {Images} from '../../assets';
 import {Metrics} from '../../styles';
 
 export const Container = styled.View`
@@ -100,7 +101,7 @@ export const ListItem = styled.ScrollView.attrs({
 `;
 
 export const Item = styled.ImageBackground.attrs({
-  source: require('../../assets/images/comic_book.png'),
+  source: Images.ComicBook,
   resizeMode: 'cover',
   imageStyle: {
     opacity: 0.35,
