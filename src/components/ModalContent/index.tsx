@@ -77,7 +77,7 @@ const ModalContent: React.FC = () => {
   );
 
   useEffect(() => {
-    if (setSelected) setSelected(selectedChar);
+    if (selectedChar) setSelected(selectedChar);
   }, [selectedChar]);
 
   useEffect(() => {
