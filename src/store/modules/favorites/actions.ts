@@ -12,7 +12,7 @@ export function addCharacter(character: CharacterInterface) {
 
 export function removeCharacter(characterId: number) {
   return {
-    type: Types.ADD_FAVORITE,
+    type: Types.REMOVE_FAVORITE,
     payload: {
       characterId,
     },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 
 import {Card, List, Separator, Header} from '../../components';
@@ -6,9 +6,15 @@ import {FavoritesStateInterface} from '../../store/modules/favorites/reducer';
 import {Container} from './styles';
 
 export default () => {
-  const {favorites} = useSelector(
-    (state: {favorites: FavoritesStateInterface}) => state.favorites,
+  const favoritesProps = useSelector(
+    (state: {favorites: FavoritesStateInterface}) => state.favorites.favorites,
   );
+
+  const [favorites, setFavorites] = useState(favoritesProps);
+
+  useEffect(() => {
+    setFavorites(favoritesProps);
+  }, [favoritesProps]);
 
   return (
     <Container>
