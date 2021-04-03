@@ -18,6 +18,7 @@ export const Spinner = styled.ActivityIndicator.attrs({
 export const List = styled(
   FlatList as new () => FlatList<CharacterInterface>,
 ).attrs({
+  keyboardShouldPersistTaps: 'handled',
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
     paddingVertical: 10,

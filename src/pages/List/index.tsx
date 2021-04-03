@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {View} from 'react-native';
+import {Animated, Keyboard, View} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {SIZE_OFFSET} from '../../common/constants';
@@ -12,7 +13,7 @@ import {
   getAllCharactersFailure,
 } from '../../store/modules/characters/actions';
 import {CharacterStateInterface} from '../../store/modules/characters/reducer';
-import {Container} from './styles';
+import styles, {Container, Input, Button} from './styles';
 
 export default () => {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ export default () => {
     (state: {characters: CharacterStateInterface}) => state.characters,
   );
 
+  const [search, setSearch] = useState('');
+  const [isShowFilter, setShowFilter] = useState(false);
   const [state, setState] = useState({
     page,
     pageTotal,
@@ -27,19 +30,24 @@ export default () => {
   });
 
   const isMouted = useRef(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const fetchCharacters = useCallback(
-    async (_page: number = 0) => {
-      if (page >= pageTotal) return;
-
+    async (_page: number = 0, _name?: string) => {
       try {
+        Keyboard.dismiss();
+
+        if (_page > 0 && _page >= pageTotal) return;
+
         dispatch(getAllCharactersRequest());
+
+        const name = !_name ? undefined : _name;
 
         const {
           data: {
             data: {results, ...info},
           },
-        } = await fetchAllCharacters(_page * SIZE_OFFSET);
+        } = await fetchAllCharacters(_page * SIZE_OFFSET, name);
 
         dispatch(getAllCharactersSuccess(results, info));
       } catch (error) {
@@ -48,7 +56,7 @@ export default () => {
         dispatch(getAllCharactersFailure(error.message));
       }
     },
-    [dispatch, page, pageTotal],
+    [dispatch, pageTotal],
   );
 
   useEffect(() => {
@@ -68,7 +76,59 @@ export default () => {
 
   return (
     <Container>
-      <Header hasSearch />
+      <Header
+        hasSearch
+        onPress={() => {
+          if (!isShowFilter) {
+            Animated.timing(fadeAnim, {
+              toValue: 60,
+              duration: 300,
+              useNativeDriver: false,
+            }).start(() => {
+              setShowFilter(true);
+            });
+          } else {
+            Animated.timing(fadeAnim, {
+              toValue: 0,
+              duration: 300,
+              useNativeDriver: false,
+            }).start(() => {
+              setShowFilter(false);
+            });
+          }
+        }}
+      />
+
+      <Animated.View
+        style={[
+          styles.fadingContainer,
+          {
+            height: fadeAnim,
+            opacity: fadeAnim.interpolate({
+              inputRange: [30, 60],
+              outputRange: [0, 1],
+              extrapolate: 'clamp',
+            }),
+          },
+        ]}>
+        <Input
+          value={search}
+          autoCapitalize="words"
+          autoCorrect={false}
+          onChangeText={setSearch}
+          onSubmitEditing={() => {
+            fetchCharacters(0, search);
+          }}
+          returnKeyType="send"
+        />
+
+        <Button
+          onPress={() => {
+            fetchCharacters(0, search);
+          }}>
+          <Ionicons name="search" size={18} color="white" />
+        </Button>
+      </Animated.View>
 
       <List
         data={characters}
@@ -76,7 +136,7 @@ export default () => {
         renderItem={({item}) => <Card data={item} />}
         ItemSeparatorComponent={() => <Separator />}
         onEndReached={() => {
-          if (state.loading || !isMouted.current) {
+          if (state.loading || !isMouted.current || characters.length < 20) {
             return;
           }
 

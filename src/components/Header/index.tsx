@@ -27,7 +27,7 @@ const Header: React.FC<Props> = ({hasSearch = false, onPress}) => (
               onPress();
             }
           }}>
-          <Ionicons name="search" size={28} />
+          <Ionicons name="filter" size={28} />
         </Button>
       ) : (
         <EmptyIcon />

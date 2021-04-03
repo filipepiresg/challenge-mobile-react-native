@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView``;
+export const Container = styled.SafeAreaView`
+  background-color: white;
+`;
 
 export const Content = styled.View`
   flex-direction: row;
