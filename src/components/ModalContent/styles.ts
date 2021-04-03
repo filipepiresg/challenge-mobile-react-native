@@ -82,6 +82,7 @@ export const Description = styled.TextInput.attrs({
   editable: false,
   multiline: true,
   underlineColorAndroid: 'transparent',
+  placeholder: 'No description',
 })`
   width: 100%;
   background-color: ${transparentize(0.2, 'lightgray')};
@@ -91,24 +92,6 @@ export const Description = styled.TextInput.attrs({
   font-size: 14px;
 `;
 
-export const ButtonProfile = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.8,
-})`
-  position: absolute;
-  /* top: 10px; */
-  right: 0;
-  background-color: blueviolet;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-`;
-
-export const ProfileText = styled.Text`
-  font-size: 12px;
-  color: white;
-`;
-
 export const ListItem = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
@@ -116,14 +99,21 @@ export const ListItem = styled.ScrollView.attrs({
   margin-bottom: 10px;
 `;
 
-export const Item = styled.View`
+export const Item = styled.ImageBackground.attrs({
+  source: require('../../assets/images/comic_book.png'),
+  resizeMode: 'cover',
+  imageStyle: {
+    opacity: 0.35,
+  },
+})`
   margin-right: 10px;
   height: 150px;
   width: 100px;
   align-items: center;
   justify-content: flex-end;
   background-color: lightgray;
-  padding: 10px;
+  padding: 10px 10px 5px;
+  /* opacity: 0.2; */
 `;
 
 export const ItemText = styled.Text.attrs({
@@ -138,7 +128,7 @@ export const ItemText = styled.Text.attrs({
 
 export const AndMoreItem = styled.Text`
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   color: black;
 `;
 
@@ -150,6 +140,6 @@ export default StyleSheet.create({
   },
   hasMore: {
     height: 150,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
 });

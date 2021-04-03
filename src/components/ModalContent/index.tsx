@@ -26,8 +26,6 @@ import styles, {
   Content,
   FieldTitle,
   FieldCount,
-  ButtonProfile,
-  ProfileText,
   WrapperCount,
   WrapperTitle,
   ListItem,
@@ -119,15 +117,9 @@ const ModalContent: React.FC = () => {
       </View>
       <Content>
         <WrapperTitle>
-          {!!selected?.description && <FieldTitle>Description</FieldTitle>}
-
-          <ButtonProfile>
-            <ProfileText>Open profile</ProfileText>
-          </ButtonProfile>
+          <FieldTitle>Description</FieldTitle>
         </WrapperTitle>
-        {!!selected?.description && (
-          <Description value={get(selected, 'description', '')} />
-        )}
+        <Description value={get(selected, 'description', '')} />
 
         {CONTENTS.map(({value: title, key}, index) => (
           <Fragment key={String(index)}>

@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {ModalContent} from '../../components';
-import {Character} from '../../pages';
 import {hideCharacter} from '../../store/modules/characters/actions';
 import {CharacterStateInterface} from '../../store/modules/characters/reducer';
 import {Metrics} from '../../styles';
@@ -27,7 +26,6 @@ export default () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Main" component={TabStack} />
-        <Stack.Screen name="Character" component={Character} />
       </Stack.Navigator>
 
       <Modal
