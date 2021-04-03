@@ -1,6 +1,7 @@
 import produce from 'immer';
-import {orderBy} from 'lodash';
+import {findIndex, orderBy} from 'lodash';
 
+import * as CharacterTypes from '../characters/types';
 import {ActionInterface, CharacterInterface} from '../Interfaces';
 import * as Types from './types';
 
@@ -18,6 +19,22 @@ function favorites(
 ): FavoritesStateInterface {
   return produce(state, (draft) => {
     switch (action.type) {
+      case CharacterTypes.GET_ALL_CHARACTERS_SUCCESS: {
+        draft.favorites = state.favorites.map((favorite) => {
+          let newCharacter = favorite;
+
+          const index = findIndex(action.payload.characters, [
+            'id',
+            favorite.id,
+          ]);
+          if (index >= 0) {
+            newCharacter = action.payload.characters[index];
+          }
+
+          return newCharacter;
+        });
+        break;
+      }
       case Types.ADD_FAVORITE: {
         draft.favorites = orderBy(
           [...state.favorites, action.payload.character],

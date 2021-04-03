@@ -2,7 +2,6 @@ import produce from 'immer';
 import {orderBy} from 'lodash';
 
 import {SIZE_OFFSET} from '../../../common/constants';
-import * as FavoritesTypes from '../favorites/types';
 import {ActionInterface, CharacterInterface} from '../Interfaces';
 import * as Types from './types';
 
@@ -63,7 +62,6 @@ function character(
         draft.characters = characters;
         break;
       }
-      case FavoritesTypes.SELECT_FAVORITE:
       case Types.SELECT_CHARACTER: {
         draft.selected = action.payload.character;
         break;
